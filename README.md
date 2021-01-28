@@ -1,2 +1,2 @@
-# website https://panzid.github.io/website/
+# website
 panz个人主页
