@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<script type="text/javascript" src="js/viewport.js"></script>-->
+
+    <meta name="viewport" content="width=640, minimum-scale=0.5, maximum-scale=0.75, user-scalable=no">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="x5-orientation" content="portrait" /><!--QQ（浏览器）强制竖屏-->
+    <meta name="screen-orientation" content="portrait"><!--UC强制竖屏显示-->
+
+    <title>5岁孩子问问题，你能答对几道呢？</title>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <!-- <link rel="shortcut icon" href="img/icon.jpg">-->
+    <link rel="stylesheet" href="css/reset.css">
+    <style type="text/css">
+
+
+        @font-face {
+            font-family: fzcy;
+            src: url('font/fangzhengcuyuan.ttf')  format('truetype')/* Safari, Android, iOS */
+        }
+        body{
+            width: 100%;
+            /*overflow: hidden;*/
+            font-family: fzcy;
+
+        }
+        .container-index{
+            width: 100%;
+            height: 100%;
+            background-color: #c6e2f3;
+            position: absolute;
+        }
+        .loading{
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            position: absolute;
+            background: #c6e2f3;
+        }
+        .loading-img{
+            width: 300px;
+            height: 300px;
+            background: url("img/loading.gif") no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -250px;
+        }
+        .box{
+            width: 100%;
+            height: 850px;
+            position: absolute;
+            top: 50%;
+            margin-top: -500px;
+        }
+
+        .bg-circle{
+            width: 380px;
+            height: 380px;
+            border: 1px solid #ffffff;
+            background-color: #ffffff;
+            position: absolute;
+            top: 250px;
+            left: 50%;
+            margin-left: -190px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 28px #cde5f4;
+            -webkit-box-shadow: 0 0 0 28px #cde5f4;
+            -moz-box-shadow: 0 0 0 28px #cde5f4;
+        }
+        .bg-component{
+            width: 100%;
+            height: 100%;
+            background: url("img/index-bg.png") no-repeat center -80px;
+            background-size: cover;
+            -webkit-background-size:cover;
+            position: absolute;
+            bottom: 0;
+        }
+        .container-index .child{
+            width: 297px;
+            height: 467px;
+            background: url("img/index-child.png");
+            background-size: 100%;
+            position: absolute;
+            left: 50%;
+            top: 185px;
+            margin-left: -149px;
+        }
+        .text-2{
+            width: 452px;
+            height: 142px;
+            background: url("img/index-text-2.png") no-repeat;
+            background-size: 100%;
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            margin-left: -226px;
+        }
+
+        .bottom-btn{
+            width: 210px;
+            height: 90px;
+            background-color: #e27458;
+
+            border-radius: 20px;
+            position: absolute;
+            left: 50%;
+            bottom: 40px;
+            margin-left: -105px;
+
+            text-align: center;
+        }
+        .bottom-btn a{
+            color: #ffffff;
+            font-size: 40px;
+            line-height: 90px;
+        }
+        .text-1{
+            width: 125px;
+            height: 121px;
+            background: url("img/index-text-1.png") no-repeat;
+            background-size: 100%;
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+        }
+
+        .container1{
+            width: 100%;
+            height: 100%;
+            background: url("img/test1-bg.png") #ffffff no-repeat;
+            background-size: 100%;
+            position: absolute;
+        }
+        .containerQuestion .box{
+            width: 556px;
+            min-height: 900px;
+            background: #ffffff;
+            border-radius: 10px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-top: -450px;
+            margin-left: -278px;
+        }
+        .container1 .img-wrap{
+            width: 480px;
+            height: 480px;
+            overflow: hidden;
+            border-radius: 50%;
+            background-size: cover;
+            -webkit-box-shadow: 0 0 0 35px #cde5f4;
+            -moz-box-shadow: 0 0 0 35px #cde5f4;
+            box-shadow: 0 0 0 20px #d8dddf;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -242px;
+            margin-top: -300px;
+        }
+        .container1 .img-wrap img{
+            position: absolute;
+            width: 514px;
+            height: 514px;
+            left: -15px;
+            top: -14px;
+        }
+
+        .container1 .question{
+            width: 100%;
+            height: 120px;
+            text-align: center;
+            color: #8AD4E3;
+            position: absolute;
+            top: 20px;
+        }
+        .containerQuestion .question h5{
+            font-size: 30px;
+        }
+        .containerQuestion .question h1{
+            font-size: 45px;
+        }
+
+        .containerQuestion .select-wrap{
+            width: 100%;
+            height: 240px;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+
+        .container1 .select-wrap span{
+            display: inline-block;
+            width: 470px;
+            height: 60px;
+            background-color: #8AD4E3;
+            color: #ffffff;
+            line-height: 60px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 25px;
+        }
+
+        .container2{
+            width: 100%;
+            height: 100%;
+            background: url("img/test2-bg.png") #ffffff no-repeat;
+            background-size: 100%;
+            position: absolute;
+        }
+        .container2 .box{
+            width: 556px;
+            /*max-height: 1100px;*/
+            min-height: 900px;
+            background: #ffffff;
+            border-radius: 10px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-top: -450px;
+            margin-left: -278px;
+        }
+        .container2 .img-wrap{
+            width: 486px;
+            height: 486px;
+            background: url("img/test2-img.png") no-repeat;
+            border-radius:50% ;
+            background-size: cover;
+            -webkit-box-shadow: 0 0 0 35px #DCF1FC;
+            -moz-box-shadow: 0 0 0 35px #DCF1FC;
+            box-shadow: 0 0 0 20px #DCF1FC;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -242px;
+            margin-top: -300px;
+        }
+
+        .container2 .question{
+            width: 100%;
+            height: 120px;
+
+            text-align: center;
+            color: #5F8D9F;
+            position: absolute;
+            top: 20px;
+        }
+        .container2 .question h5{
+            font-size: 25px;
+        }
+        .container2 .question h1{
+            font-size: 45px;
+        }
+
+        .container2 .select-wrap{
+            width: 100%;
+            height: 240px;
+            position: absolute;
+            bottom: 0px;
+            text-align: center;
+        }
+
+        .container2 .select-wrap span{
+            display: inline-block;
+            width: 470px;
+            height: 60px;
+            background-color: #5F8D9F;
+            color:#fdfefe;
+            line-height: 60px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 25px;
+        }
+
+        .container3{
+            width: 100%;
+            height: 100%;
+            background: url("img/test3-bg.png") #ffffff no-repeat;
+            background-size: 100%;
+            position: absolute;
+        }
+        .container3 .box{
+            width: 556px;
+            /*max-height: 1100px;*/
+            min-height: 900px;
+            background: #ffffff;
+            border-radius: 10px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-top: -450px;
+            margin-left: -278px;
+        }
+        .container3 .img-wrap{
+            width: 486px;
+            height: 486px;
+            background: url("img/test3-img.png") no-repeat;
+            border-radius:50% ;
+            background-size: cover;
+            -webkit-box-shadow: 0 0 0 35px #FFE284  ;
+            -moz-box-shadow: 0 0 0 35px #FFE284  ;
+            box-shadow: 0 0 0 20px #FFE284  ;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -242px;
+            margin-top: -300px;
+        }
+
+        .container3 .question{
+            width: 100%;
+            height: 120px;
+            text-align: center;
+            color: #FF9300;
+            position: absolute;
+            top: 20px;
+        }
+        .container3 .question h5{
+            font-size: 25px;
+        }
+        .container3 .question h1{
+            font-size: 45px;
+        }
+
+        .container3 .select-wrap{
+            width: 100%;
+            height: 240px;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+        .container3 .select-wrap span{
+            display: inline-block;
+            width: 470px;
+            height: 60px;
+            background-color: #FF9300;
+            color: #ffffff;
+            line-height: 60px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 25px;
+        }
+
+
+        /*问题4-8*/
+        .containerQuestion{
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            position: absolute;
+        }
+        .container4{
+            background: url("img/test4-bg.png") #ffffff no-repeat;
+        }
+        .container5{
+            background: url("img/test5-bg.png") #ffffff no-repeat;
+        }
+        .container6{
+            background: url("img/test5-bg.png") #ffffff no-repeat;
+        }
+        .container7{
+            background: url("img/test5-bg.png") #ffffff no-repeat;
+        }
+        .container8{
+            background: url("img/test5-bg.png") #ffffff no-repeat;
+        }
+
+        /*公共部分*/
+        .containerQuestion .box{
+            width: 556px;
+            /*max-height: 1100px;*/
+            min-height: 900px;
+            background: #ffffff;
+            border-radius: 10px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-top: -450px;
+            margin-left: -278px;
+        }
+
+
+
+        .containerQuestion .img-wrap{
+            width: 486px;
+            height: 486px;
+            /*background: url("img/test4-imga.png") no-repeat;*/
+            overflow: hidden;
+            border-radius:50% ;
+            background-size: cover;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -242px;
+            margin-top: -300px;
+        }
+        .container4 .img-wrap{
+            -webkit-box-shadow: 0 0 0 35px #E7E7E8;
+            -moz-box-shadow: 0 0 0 35px #E7E7E8;
+            box-shadow: 0 0 0 20px #E7E7E8;
+        }
+        .container5 .img-wrap{
+            -webkit-box-shadow: 0 0 0 35px #DFF0E7;
+            -moz-box-shadow: 0 0 0 35px #DFF0E7;
+            box-shadow: 0 0 0 20px #DFF0E7;
+        }
+        .container6 .img-wrap{
+            -webkit-box-shadow: 0 0 0 35px #FCE9F1;
+            -moz-box-shadow: 0 0 0 35px #FCE9F1;
+            box-shadow: 0 0 0 20px #FCE9F1;
+        }
+        .container7 .img-wrap{
+            -webkit-box-shadow: 0 0 0 35px #DCF1FC;
+            -moz-box-shadow: 0 0 0 35px #DCF1FC;
+            box-shadow: 0 0 0 20px #DCF1FC;
+        }
+        .container8 .img-wrap{
+            -webkit-box-shadow: 0 0 0 35px #FFFBCC;
+            -moz-box-shadow: 0 0 0 35px #FFFBCC;
+            box-shadow: 0 0 0 20px #FFFBCC;
+        }
+
+
+
+
+
+        .containerQuestion .img-wrap img{
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            left: -4px;
+            top: -8px;
+        }
+
+        .containerQuestion .question{
+            width: 100%;
+            height: 120px;
+            text-align: center;
+            position: absolute;
+            top: 20px;
+        }
+        .container4 .question{
+            color: #BBBEC0;
+        }
+        .container5 .question{
+            color: #9FB930;
+        }
+        .container6 .question{
+            color: #FEAEAF;
+        }
+        .container7 .question{
+            color: #64C9DA;
+        }
+        .container8 .question{
+            color: #CBD970;
+        }
+
+
+
+        .containerQuestion .question h5{
+            font-size: 25px;
+        }
+        .containerQuestion .question h1{
+            font-size: 45px;
+        }
+
+        .containerQuestion .select-wrap{
+            width: 100%;
+            height: 240px;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+        .containerQuestion .select-wrap span{
+            display: inline-block;
+            width: 470px;
+            height: 60px;
+            color: #ffffff;
+            line-height: 60px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 25px;
+        }
+        .container4 .select-wrap span{
+            background-color: #BBBEC0;
+        }
+        .container5 .select-wrap span{
+            background-color: #9FB930;
+        }
+        .container6 .select-wrap span{
+            background-color: #FEAEAF;
+        }
+        .container7 .select-wrap span{
+            background-color: #64C9DA;
+        }
+        .container8 .select-wrap span{
+            background-color: #CBD970;
+        }
+
+
+        /* section  ：  containerResult*/
+        .containerResult {
+            width: 100%;
+            height: 100%;
+            background: #c6e2f3;
+            background-size: 100%;
+            position: absolute;
+        }
+        .containerResult .box{
+            width: 100%;
+            /*max-height: 1100px;*/
+            min-height: 880px;
+            position: relative;
+            top: 50%;
+            margin-top: -440px;
+        }
+
+        .containerResult .result{
+            width: 500px;
+            /*height: 380px;*/
+            height: auto;
+            padding-bottom: 80px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            position: relative;
+            left: 50%;
+            top: 250px;
+            margin-left: -250px;
+        }
+        .containerResult  .child{
+            width: 276px;
+            height: 271px;
+            background-size: cover;
+            position: absolute;
+            left: 50%;
+            top: -250px;
+            margin-left: -138px;
+        }
+        .containerResult  .lizard{
+            width: 152px;
+            height: 94px;
+            background: url("img/result-lizard.png") no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: -15px;
+            bottom: -53px;
+        }
+        .containerResult div.text{
+            width: 100%;
+            /*height: 260px;*/
+            height:auto;
+            position: relative;
+            top: 50px;
+            color: #e27458;
+            text-align: center;
+        }
+
+        .containerResult .text h2{
+            font-size: 40px;
+        }
+        .containerResult .text .content{
+            display: inline-block;
+            width: 410px;
+            font-size: 33px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .containerResult .button{
+            width: 100%;
+            height: 162px;
+            position: absolute;
+            bottom: 0;
+        }
+        .containerResult .button p{
+            width: 392px;
+            position: relative;
+            left: 50%;
+            margin-left: -196px;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        .containerResult  .btn-red{
+            height: 80px;
+        }
+
+        .containerResult  .answer{
+            float: left;
+        }
+        .containerResult  .join{
+            float: right;
+        }
+        .containerResult .btn-red span{
+            display: inline-block;
+            width: 180px;
+            height: 100%;
+            background-color: #e27458;
+            border-radius: 20px;
+            line-height: 80px;
+        }
+
+        .containerResult .share{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background-color: #99cb45;
+            border-radius: 20px;
+        }
+
+
+        .containerResult .btn-green{
+            height: 60px;
+            position: relative;
+            bottom: -22px;
+        }
+        .containerResult .button p span{
+            font-size: 33px;
+            color: #fefbfa;
+            font-weight: 600;
+
+        }
+        .containerResult .btn-green span{
+            line-height: 60px;
+        }
+        /*.containerResult .shareBlack{
+            background: url(./img/share.png) no-repeat;
+            background-size: contain;
+            position: absolute;
+            width: 636px;
+            height: 1133px;
+            top: -378px;
+            left: -68px;
+            z-index: 1;
+        }*/
+        .containerResult .shareBlack{
+            position: absolute;
+            display: none;
+            z-index:1;
+        }
+        .containerResult .box .resultTip{
+            background: url("./img/resultTip.png") no-repeat;
+            background-size:cover;
+            width: 199px;
+            height: 79px;
+            position: absolute;
+            top: -38px;
+        }
+
+        /*音乐动画*/
+        .music{
+            width: 55px;
+            height: 55px;
+            background: url("img/music.png") no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+        .musicRun{
+            animation: musicRun 3s;
+            -webkit-animation: musicRun 3s;
+            animation-timing-function:linear;
+            -webkit-animation-timing-function:linear;
+            animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        @keyframes musicRun {
+            0%{transform: rotate(-360deg);}
+        }
+    </style>
+
+    <script src="js/jquery-1.10.1.min.js"></script>
+
+   <!-- <script>
+        var imgUrl = "http://app.sencha.com.cn/h5.game/mother6/img/icon.jpg";
+        var lineLink = "http://app.sencha.com.cn/h5.game/mother6/index.html";
+        var shareTitle = '5岁孩子问问题，你能答对几道呢？';
+        var descContent = '智慧父母脑力营等你来';
+
+        var url = "http://app.sencha.com.cn/mp.crm/server/weixin/bin/jsapi.php" ;
+        $.ajax({
+            url: url,
+            data:{
+                appName: 'LeTraining',
+                callback: 'getSignature'
+            },
+            dataType: "script",
+            error: function(xhr,error,e){
+
+            },
+            success: function(obj){
+
+            }
+        });
+
+        /**
+         * 从后台获得微信对象的配置参数。
+         * @param obj   关键参数对象
+         */
+
+        function getSignature(obj){
+            obj.debug = false ;
+            obj.jsApiList = [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'hideMenuItems',
+                'showMenuItems',
+                'hideAllNonBaseMenuItem',
+                'showAllNonBaseMenuItem',
+                'translateVoice',
+                'startRecord',
+                'stopRecord',
+                'onRecordEnd',
+                'playVoice',
+                'pauseVoice',
+                'stopVoice',
+                'uploadVoice',
+                'downloadVoice',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage',
+                'getNetworkType',
+                'openLocation',
+                'getLocation',
+                'hideOptionMenu',
+                'showOptionMenu',
+                'closeWindow',
+                'scanQRCode',
+                'chooseWXPay',
+                'openProductSpecificView',
+                'addCard',
+                'chooseCard',
+                'openCard'
+            ] ;
+            console.log(obj) ;
+            wx.config(obj);
+            wx.ready(onWxReady) ;
+            wx.error(function(res){
+                alert("wx error!");
+            });
+
+        }
+
+
+
+        //启用微信的分享接口
+        function onWxReady(){
+
+            /**
+             * 设置“分享给朋友”按钮点击状态及自定义分享内容接口
+             */
+            wx.onMenuShareAppMessage({
+                title: shareTitle,
+                desc: descContent,
+                link: lineLink,
+                imgUrl: imgUrl,
+                trigger: function (res) {
+
+                },
+                success: function (res) {
+
+                },
+                cancel: function (res) {
+
+                },
+                fail: function (res) {
+
+                }
+            });
+
+            // 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
+            wx.onMenuShareTimeline({
+                title: shareTitle,
+                link:lineLink,
+                imgUrl:imgUrl,
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+        }
+    </script>-->
+</head>
+<body>
+
+
+<section class="container-index">
+
+    <div class="loading">
+        <div class="loading-img"></div>
+    </div>
+    <div class="box">
+        <div class="bg-circle"></div>
+        <div class="bg-component"></div>
+        <div class="child"></div>
+        <div class="text-2"></div>
+    </div>
+    <div class="bottom-btn">
+        <a href="#container1"><span>测一测</span></a>
+    </div>
+    <div class="text-1"></div>
+
+    <!--<div class="music musicRun">
+        <audio src="./audio/bg.mp3" autoplay loop preload="auto"  style="display: none"></audio>
+    </div>-->
+</section>
+
+<section class="container container1 containerQuestion">
+    <div class="box">
+        <div class="question">
+            <h5>问题1</h5>
+            <h1>所有的动物都有脑子吗？</h1>
+        </div>
+        <div class="img-wrap">
+            <img src="img/test1-img.png" alt="">
+        </div>
+        <div class="select-wrap">
+            <span class="0">A.当然, 所有的动物都有脑子</span>
+            <span class="1">B.有些动物没有脑子</span>
+            <span class="0">C.只有人类有脑子</span>
+        </div>
+    </div>
+</section>
+
+<section  class="container container2 containerQuestion">
+    <div class="box">
+        <div class="question">
+            <h5>问题2</h5>
+            <h1>企鹅能飞吗？</h1>
+        </div>
+        <div class="img-wrap"></div>
+        <div class="select-wrap">
+            <span class="0">A.能呀，它长了翅膀呀！</span>
+            <span class="1">B.不能，它们更喜欢游泳</span>
+            <span class="0">C.能，但只有长大的企鹅才能飞</span>
+        </div>
+    </div>
+</section>
+
+<section class="container containerQuestion container3">
+    <div class="box">
+        <div class="question">
+            <h5>问题3</h5>
+            <h1>西红柿是水果还是蔬菜？</h1>
+        </div>
+        <div class="img-wrap"></div>
+        <div class="select-wrap">
+            <span class="1">A.水果！</span>
+            <span class="0">B.蔬菜！</span>
+            <span class="0">C.都不是，西红柿是膨大的红叶片</span>
+        </div>
+    </div>
+</section>
+
+<section class="container container4 containerQuestion">
+    <div class="box">
+        <div class="question">
+            <h5>问题4</h5>
+            <h1>鲨鱼睡觉吗？</h1>
+        </div>
+        <div class="img-wrap">
+            <img src="img/test4-img.png" alt="">
+        </div>
+        <div class="select-wrap">
+            <span class="0">A.睡觉，它们每天晚上都躲到海床里</span>
+            <span class="0">B.不睡，它们其实一直也不清醒</span>
+            <span class="1">C.它们会休息，但不会像我们这样睡觉</span>
+        </div>
+    </div>
+</section>
+
+<section class="container container5 containerQuestion">
+    <div class="box">
+        <div class="question">
+            <h5>问题5</h5>
+            <h1>蚯蚓如何呼吸？</h1>
+        </div>
+        <div class="img-wrap">
+            <img src="img/test5-img.png" alt="">
+        </div>
+        <div class="select-wrap">
+            <span class="0">A.由于总是待在地下，蚯蚓不需要呼吸</span>
+            <span class="0">B.蚯蚓前端长着看不见的鼻孔</span>
+            <span class="1">C.通过皮肤呼吸</span>
+        </div>
+    </div>
+</section>
+
+<section class="container container6 containerQuestion ">
+    <div class="box">
+        <div class="question">
+            <h5>问题6</h5>
+            <h1>身体最大的器官是什么？</h1>
+        </div>
+        <div class="img-wrap">
+            <img src="img/test6-img.png" alt="">
+        </div>
+        <div class="select-wrap">
+            <span class="0">A.肝脏</span>
+            <span class="1">B.皮肤</span>
+            <span class="0">C.大脑</span>
+        </div>
+    </div>
+</section>
+
+<section class="container container7 containerQuestion">
+    <div class="box">
+        <div class="question">
+            <h5>问题7</h5>
+            <h1>狗能看到颜色吗？</h1>
+        </div>
+        <div class="img-wrap">
+            <img src="img/test7-img.png" alt="">
+        </div>
+        <div class="select-wrap">
+            <span class="0">A.能看到, 它们的眼睛和人的一样</span>
+            <span class="0">B.不能, 狗看所有的东西都是黑白的</span>
+            <span class="1">C.能, 但狗看到的颜色比较有限</span>
+        </div>
+    </div>
+</section>
+
+<section class="container container8 containerQuestion">
+    <div class="box">
+        <div class="question">
+            <h5>问题8</h5>
+            <h1>蛇咬自己一口会中毒吗？</h1>
+        </div>
+        <div class="img-wrap">
+            <img src="img/test8-img.png" alt="">
+        </div>
+        <div class="select-wrap">
+            <span class="0">A.会中毒, 所以蛇特别小心</span>
+            <span class="0">B.会中毒, 但不会致命, 只是失去蛇皮</span>
+            <span class="1">C.不会中毒, 蛇对自己有免疫力</span>
+        </div>
+    </div>
+</section>
+
+
+<section class="container containerResult">
+    <div class="shareBlack">
+        <img src="./img/share.png" width="640" height="100%" alt="Planets" usemap="#myMap">
+        <map id="myMap" name="myMap">
+            <area shape="rect" coords="205,347,439,425">
+        </map>
+    </div>
+    <div class="box">
+        <div class="resultTip"></div>
+        <div class="result">
+            <div class="child"></div>
+            <div class="lizard"></div>
+            <div class="text">
+                <h2 class="resultScore"></h2>
+                <p class="content">
+
+                </p>
+            </div>
+        </div>
+        <div class="button">
+            <p class="btn-red">
+                <a href="http://note.youdao.com/noteshare?id=4b35a158aa7cdeddbc3a2f51ae7d8229"><span class="answer">查看答案</span></a>
+                <a href="http://note.youdao.com/noteshare?id=67f1e4e51bdb6dc74cd912ec9d3e74aa"><span class="join">参加活动</span></a>
+            </p>
+            <p class="btn-green">
+                <span class="share">分享给好友</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="music">
+    <audio id="music" src="audio/music.mp3" loop preload="auto" autoplay style="display: none"></audio>
+</div>
+
+</body>
+
+
+
+<script>
+
+    var oLoadingImg = document.querySelector('.loading-img');
+    oLoadingImg.style.backgroundImage = 'url(img/loading.gif)';
+
+    function view() {//获取可视区的宽高
+        return {
+            w: document.documentElement.clientWidth,
+            h: document.documentElement.clientHeight
+        };
+    }
+    document.body.style.height = view().h + 'px';
+
+    //////////////////////////////////////////////////////////////////////////
+
+
+
+    //预加载图片处理////////////////////////////////////////////////////////////////
+    showLoading();
+    function showLoading() {
+        var arrImg = ['index-bg.png', 'index-child.png', 'index-text-1.png', 'index-text-2.png', 'test1-bg.png', 'test1-img.png', 'test2-bg.png', 'test2-img.png', 'test3-bg.png', 'test3-img.png', 'test4-bg.png', 'test4-img.png', 'test5-bg.png', 'test5-img.png', 'test6-bg.png', 'test6-img.png', 'test7-bg.png', 'test7-img.png', 'test8-bg.png', 'test8-img.png', 'result1-child.png', 'result1-child2.png', 'result1-child3.png', 'result1-child4.png','resultPage_1.png','resultPage_2.png','resultPage_3.png','resultPage_4.png','resultTip.png'];
+        var iNow = 0;
+        for (var i = 0; i < arrImg.length; i++) {
+            var objImg = new Image();
+            objImg.src = 'img/' + arrImg[i];
+            objImg.onload = function () {
+                iNow++;
+                if (iNow == arrImg.length) {
+                    var oLoading = document.querySelector('.loading');
+                    oLoading.style.display = 'none';
+                    musicShow();
+                }
+            };
+        }
+        return arrImg;
+    }
+
+
+    function bind(obj, ev, fn) { //事件绑定
+        if (obj.addEventListener) {
+            obj.addEventListener(ev, fn, false);
+        } else {
+            obj.attachEvent('on' + ev, function() {
+                fn.call(obj);
+            });
+        }
+    }
+
+
+    function addClass(obj, sClass) { //添加class样式
+        var aClass = obj.className.split(' ');
+        if (!obj.className) {
+            obj.className = sClass;
+            return;
+        }
+        for (var i = 0; i < aClass.length; i++) {
+            if (aClass[i] === sClass) return;
+        }
+        obj.className += ' ' + sClass;
+    }
+
+
+    function removeClass(obj, sClass) { //移除class样式
+        var aClass = obj.className.split(' ');
+        if (!obj.className) return;
+        for (var i = 0; i < aClass.length; i++) {
+            if (aClass[i] === sClass) {
+                aClass.splice(i, 1);
+                obj.className = aClass.join(' ');
+                break;
+            }
+        }
+    }
+
+
+
+    var audio = document.querySelector('audio');
+    var aMusic = document.querySelector('.music');
+
+    function musicShow() {
+
+
+
+        audio.src = "audio/music.mp3";
+        audio.play();
+        //console.log(audio);
+        //console.log(aMusic);
+
+        //一般情况下，这样就可以自动播放了，但是一些奇葩iPhone机不可以
+        //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+//            alert(audio.networkState);
+        }, false);
+
+        addClass(aMusic,'musicRun');
+
+
+        bind(aMusic,'touchstart',function () {
+            if(audio.paused){
+                audio.play();
+//               removeClass(aMusic,'musicStop');
+                addClass(aMusic,'musicRun')
+            }else {
+                audio.pause();
+                removeClass(aMusic,'musicRun');
+//               addClass(aMusic,'musicStop')
+            }
+        })
+    }
+
+    //点击测一测/选项出现下一个section
+    var sectionArr = document.querySelectorAll("section");
+    var score = 0;//分数
+    var page = 0;//页数
+    sectionArr[0].style.zIndex = 1;//绝对定位后，提升首页层级
+
+    for(var i=0;i<sectionArr.length-1;i++){
+
+        var item = sectionArr[i];
+
+        //处理首页
+        if(i==0){
+            var btnTest = item.querySelector(".bottom-btn span");
+            btnTest.onclick = function () {
+                sectionArr[1].style.zIndex = 1;
+                page++;
+
+                showScore()
+            }
+        }else {
+            var btnOptions = item.querySelectorAll(".select-wrap span");
+
+            for(var j=0;j<btnOptions.length;j++){
+                btnOptions[j].index = i;
+                btnOptions[j].onclick = function () {
+                    page++;
+                    sectionArr[this.index + 1].style.zIndex = 1;
+                    score += (+this.className);
+
+                    showScore()
+                }
+
+            }
+        }
+    };
+
+    function showScore(){
+
+        var content = document.querySelector("p.content");
+        var child = document.querySelector(".containerResult .child");
+        var resultScore = document.querySelector(".containerResult .resultScore")
+
+        if(page == 9){//条件判断，当点击到达结果页面时，执行的操作
+
+            var aText = [
+                '啥都不说了，这成绩，你敢给你儿子看吗？',
+                '你的情况不容乐观啊！感觉在学校里学得各门功课都基本还给体育老师啦！强烈建议你在升级做爸妈之前， 赶紧全方位恶补一下！',
+                '不错哦! 看来 5 岁孩子的提问，你的知识储备还勉强应付得来。但做人贵在有危机感，不想被10岁孩子问得太惨，就要暗自努力啦！',
+                '竟然全中了！！！你是幸得上帝暗助，还是真的智商过人呢？一本移动的百科全书你是当之无愧的！！！'
+            ];
+
+            if(score<=1){
+                content.innerHTML = aText[0];
+                //background:url("./img/result1-child4.png") no-repeat;
+                child.style.backgroundImage = 'url(img/result1-child4.png)';
+                resultScore.innerHTML = "对了" + score + "道";
+            }else if(score<=4){
+                content.innerHTML = aText[1];
+                child.style.backgroundImage = 'url(img/result1-child3.png)';
+                resultScore.innerHTML = "对了" + score + "道";
+
+            }else if(score<=7){
+                content.innerHTML = aText[2];
+                child.style.backgroundImage = 'url(img/result1-child2.png)';
+                resultScore.innerHTML = "对了" + score + "道";
+
+            }else if(score == 8){
+                content.innerHTML = aText[3];
+                child.style.backgroundImage = 'url(img/result1-child.png)';
+                resultScore.innerHTML = "对了" + score + "道";
+
+            }
+        }
+    };
+
+    //结果页，分享按钮点击
+    var  btnShare = document.querySelector(".btn-green .share");//分享按钮
+    var  blackShare = document.querySelector(" .shareBlack");//悬浮分享提示框
+    var  oArea = document.querySelector("area");//悬浮分享提示框中的“我知道啦”
+
+    //sectionArr[9].style.zIndex = 1;//测试使用
+    btnShare.onclick = function () {
+        blackShare.style.display = "block";
+    };
+    oArea.onclick = function () {
+        blackShare.style.display = "none";
+    };
+
+
+
+
+</script>
+</html>

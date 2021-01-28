@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+
+ul,ol{
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6,section,li{
+    margin: 0;
+    padding: 0;
+}
+
+body * {
+    -webkit-text-size-adjust: 100%; /*去除文字缩放*/
+    -webkit-user-select: none; /*选中文字设置*/
+}
+
+a, input, button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /*//清除点击阴影，设置点击颜色*/
+}
+
+input, button {
+    -webkit-appearance: none; /*消除按钮圆角*/
+    border-radius: 0; /*彻底消除圆角按钮*/
+}
+a{
+    text-decoration: none;
+    text-outline: none;
+}
